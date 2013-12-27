@@ -1,37 +1,44 @@
 package problem_1
 
-import "testing"
+import (
+  . "github.com/onsi/ginkgo"
+  . "github.com/onsi/gomega"
+  "testing"
+)
 
-func TestSumOfFivesAndThrees(t *testing.T) {
-	sum := sum_of_threes_and_fives_below(3)
-	if sum != 0 {
-		t.Errorf("Sum was %v; wanted %v", sum, 0)
-	}
-
-	sum = sum_of_threes_and_fives_below(5)
-	if sum != 3 {
-		t.Errorf("Sum was %v; wanted %v", sum, 3)
-	}
-
-	sum = sum_of_threes_and_fives_below(6)
-	if sum != 8 {
-		t.Errorf("Sum was %v; wanted %v", sum, 8)
-	}
-
-	sum = sum_of_threes_and_fives_below(15)
-	if sum != 45 {
-		t.Errorf("Sum was %v; wanted %v", sum, 45)
-	}
-
-	// 3 + 6 + 9 + 5 == 23
-	sum = sum_of_threes_and_fives_below(10)
-	if sum != 23 {
-		t.Errorf("Sum was %v; wanted %v", sum, 23)
-	}
-
-	sum = sum_of_threes_and_fives_below(1000)
-	if sum != 233168 {
-		t.Errorf("Sum was %v; wanted %v", sum, 233168)
-	}
-
+func TestProblem_1(t *testing.T) {
+  RegisterFailHandler(Fail)
+  RunSpecs(t, "sumOfThreesAndFivesBelow")
 }
+
+var _ = Describe("sumOfThreesAndFivesBelow", func() {
+  It("works for 3", func() {
+    sum := sumOfThreesAndFivesBelow(3)
+    Expect(sum).To(Equal(0))
+  })
+
+  It("works for 5", func() {
+    sum := sumOfThreesAndFivesBelow(5)
+    Expect(sum).To(Equal(3))
+  })
+
+  It("works for 6", func() {
+    sum := sumOfThreesAndFivesBelow(6)
+    Expect(sum).To(Equal(8))
+  })
+
+  It("works for 10", func() {
+    sum := sumOfThreesAndFivesBelow(10)
+    Expect(sum).To(Equal(23))
+  })
+
+  It("works for 15", func() {
+    sum := sumOfThreesAndFivesBelow(15)
+    Expect(sum).To(Equal(45))
+  })
+
+  It("works for 1000", func() {
+    sum := sumOfThreesAndFivesBelow(1000)
+    Expect(sum).To(Equal(233168))
+  })
+})
