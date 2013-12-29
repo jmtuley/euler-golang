@@ -1,11 +1,7 @@
 package problem_1
 
-import (
-  "fmt"
-)
-
-func main() {
-  fmt.Println("Total is ", sumOfThreesAndFivesBelow(1000))
+func Solution() int {
+  return sumOfThreesAndFivesBelow(1000)
 }
 
 func sumOfThreesAndFivesBelow(max int) int {
